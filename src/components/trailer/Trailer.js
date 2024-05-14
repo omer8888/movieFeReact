@@ -1,0 +1,25 @@
+import React from 'react';
+import {useParams} from "react-router-dom";
+import ReactPlayer from 'react-player';
+import './Trialier.css'
+
+const Trailer = () => {
+    const params = useParams();
+    const key = params.youTubeTrailerId;
+
+    return (
+        <div className="react-player-container">
+            {key != null ? (
+                <ReactPlayer
+                    controls={true}
+                    playing={true}
+                    url={`https://www.youtube.com/watch?v=${key}`}
+                    width='100%'
+                    height='100%'
+                />
+            ) : null}
+        </div>
+    );
+}
+
+export default Trailer;
